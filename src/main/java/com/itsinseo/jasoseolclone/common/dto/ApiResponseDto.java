@@ -4,11 +4,11 @@ import lombok.Getter;
 
 @Getter
 public class ApiResponseDto {
-    private Long statusCode;
-    private String messageCode;
+    private Integer statusCode;
+    private String message;
 
-    public ApiResponseDto(Long statusCode, String messageCode) {
+    public ApiResponseDto(Integer statusCode, String message) {
         this.statusCode = statusCode;
-        this.messageCode = messageCode;
+        this.message = message;
     }
 }
