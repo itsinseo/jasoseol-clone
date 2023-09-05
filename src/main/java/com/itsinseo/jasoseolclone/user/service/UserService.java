@@ -19,7 +19,7 @@ public interface UserService {
      * 로그인
      *
      * @param signinRequestDto    로그인 요청 데이터
-     * @param httpServletResponse
+     * @param httpServletResponse   헤더에 토큰을 추가할 response
      * @return 로그인 요청 처리 결과
      */
     ApiResponseDto signin(SigninRequestDto signinRequestDto, HttpServletResponse httpServletResponse);
