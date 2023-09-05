@@ -10,7 +10,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
@@ -38,7 +37,7 @@ public class JwtAuthorizationFilter extends OncePerRequestFilter {
             String onBlacklist = redisTemplate.opsForValue().get(token);
             // 블랙리스트에 등록되었거나 유효하지 않은 토큰인 경우
             if (StringUtils.hasText(onBlacklist) || !jwtUtil.validateToken(token)) {
-                ApiResponseDto responseDto = new ApiResponseDto(HttpStatus.BAD_REQUEST.value(), "토큰이 유효하지 않습니다.");
+                ApiResponseDto responseDto = new ApiResponseDto("토큰이 유효하지 않습니다.");
                 response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
                 response.setContentType("application/json; charset=UTF-8");
                 response.getWriter().write(objectMapper.writeValueAsString(responseDto));
