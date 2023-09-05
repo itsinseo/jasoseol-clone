@@ -1,10 +1,13 @@
 package com.itsinseo.jasoseolclone.user.entity;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Getter
+@NoArgsConstructor
 @Table(name = "profiles")
 public class Profile {
     @Id
@@ -18,7 +21,22 @@ public class Profile {
     @Column(nullable = false)
     private String introduction;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public void setIntroduction(String introduction) {
+        this.introduction = introduction;
+    }
+
+    @Builder
+    public Profile(Long profileId, String name, String introduction) {
+        this.profileId = profileId;
+        this.name = name;
+        this.introduction = introduction;
+    }
 }
