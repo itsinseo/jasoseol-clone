@@ -3,8 +3,10 @@ package com.itsinseo.jasoseolclone.user.controller;
 import com.itsinseo.jasoseolclone.common.dto.ApiResponseDto;
 import com.itsinseo.jasoseolclone.security.UserDetailsImpl;
 import com.itsinseo.jasoseolclone.user.dto.NormalUserSignupRequestDto;
+import com.itsinseo.jasoseolclone.user.dto.PasswordChangeRequestDto;
 import com.itsinseo.jasoseolclone.user.dto.SigninRequestDto;
 import com.itsinseo.jasoseolclone.user.service.UserService;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -30,8 +32,22 @@ public class UserController {
         return userService.signin(signinRequestDto, httpServletResponse);
     }
 
+
+    @PostMapping("/signout")
+    public ApiResponseDto signout(HttpServletRequest request) {
+        return userService.signout(request);
+    }
+
     @DeleteMapping("/withdraw")
-    public ApiResponseDto withdrawUser(@AuthenticationPrincipal UserDetailsImpl userDetails) {
-        return userService.withdrawUser(userDetails.getUser().getUserId());
+    public ApiResponseDto withdraw(@AuthenticationPrincipal UserDetailsImpl userDetails) {
+        return userService.withdraw(userDetails.getUser().getUserId());
+    }
+
+    @PutMapping("/password")
+    public ApiResponseDto changePassword(@Valid @RequestBody PasswordChangeRequestDto passwordChangeRequestDto,
+                                         BindingResult bindingResult,
+                                         @AuthenticationPrincipal UserDetailsImpl userDetails,
+                                         HttpServletRequest httpServletRequest) {
+        return userService.changePassword(userDetails.getUser(), passwordChangeRequestDto, httpServletRequest);
     }
 }

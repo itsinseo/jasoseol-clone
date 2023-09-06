@@ -7,11 +7,14 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import java.util.concurrent.RejectedExecutionException;
+
 @RestControllerAdvice
 public class GlobalControllerAdvice {
-    @ExceptionHandler({IllegalArgumentException.class, DataIntegrityViolationException.class})
+    @ExceptionHandler({IllegalArgumentException.class, DataIntegrityViolationException.class,
+            RejectedExecutionException.class})
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public ApiResponseDto handleIllegalException(Exception e) {
+    public ApiResponseDto handleException(Exception e) {
         return new ApiResponseDto(e.getMessage());
     }
 }

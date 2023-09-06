@@ -10,19 +10,24 @@ import org.springframework.validation.ObjectError;
 
 @Aspect
 @Component
-public class UsernamePatternAop {
+public class PatternAop {
+
     @Pointcut("execution(* com.itsinseo.jasoseolclone.user.controller.UserController.signupNormalUser(..))")
     public void signup() {
     }
 
-    @Around("signup()")
+    @Pointcut("execution(* com.itsinseo.jasoseolclone.user.controller.UserController.changePassword(..))")
+    public void changePassword() {
+    }
+
+    @Around("signup()||changePassword()")
     public Object executePatternCheck(ProceedingJoinPoint joinPoint) throws Throwable {
         Object[] argument = joinPoint.getArgs();
         BindingResult bindingResult = (BindingResult) argument[1];
 
         if (bindingResult.hasErrors()) {
             StringBuilder stringBuilder = new StringBuilder();
-            for(ObjectError error: bindingResult.getAllErrors()){
+            for (ObjectError error : bindingResult.getAllErrors()) {
                 stringBuilder.append(error.getDefaultMessage());
             }
             String patternErrorMessage = stringBuilder.toString();
