@@ -1,6 +1,6 @@
 package com.itsinseo.jasoseolclone.user.entity;
 
-import com.itsinseo.jasoseolclone.board.entity.Board;
+import com.itsinseo.jasoseolclone.board.entity.FreePost;
 import com.itsinseo.jasoseolclone.resume.entity.Resume;
 import com.itsinseo.jasoseolclone.user.UserAccountType;
 import com.itsinseo.jasoseolclone.user.UserSignupType;
@@ -44,7 +44,7 @@ public class User {
     private Profile profile;
 
     @OneToMany(mappedBy = "user")
-    private List<Board> boardList = new ArrayList<>();
+    private List<FreePost> freePostList = new ArrayList<>();
 
     @OneToMany(mappedBy = "user")
     private List<Resume> resumeList = new ArrayList<>();

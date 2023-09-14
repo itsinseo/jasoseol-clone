@@ -1,6 +1,6 @@
 package com.itsinseo.jasoseolclone.user.service;
 
-import com.itsinseo.jasoseolclone.common.dto.ApiResponseDto;
+import com.itsinseo.jasoseolclone.common.ApiResponseDto;
 import com.itsinseo.jasoseolclone.user.dto.ProfileCreateRequestDto;
 import com.itsinseo.jasoseolclone.user.dto.ProfileResponseDto;
 import com.itsinseo.jasoseolclone.user.dto.ProfileUpdateRequestDto;

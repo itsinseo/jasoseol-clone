@@ -1,7 +1,7 @@
 package com.itsinseo.jasoseolclone.jwt;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.itsinseo.jasoseolclone.common.dto.ApiResponseDto;
+import com.itsinseo.jasoseolclone.common.ApiResponseDto;
 import com.itsinseo.jasoseolclone.security.UserDetailsServiceImpl;
 import io.jsonwebtoken.Claims;
 import jakarta.servlet.FilterChain;

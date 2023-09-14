@@ -1,6 +1,6 @@
 package com.itsinseo.jasoseolclone.user.service;
 
-import com.itsinseo.jasoseolclone.common.dto.ApiResponseDto;
+import com.itsinseo.jasoseolclone.common.ApiResponseDto;
 import com.itsinseo.jasoseolclone.user.dto.NormalUserSignupRequestDto;
 import com.itsinseo.jasoseolclone.user.dto.PasswordChangeRequestDto;
 import com.itsinseo.jasoseolclone.user.dto.SigninRequestDto;
@@ -45,7 +45,7 @@ public interface UserService {
      * @param user  비밀번호를 변경할 회원
      * @param passwordRequestDto    비밀번호 변경 요청 데이터
      * @param httpServletRequest    요청 헤더 (헤더에서 토큰값을 가져오기 위함)
-     * @return  비밀번호 변경 요청 처리 결과
+     * @return 비밀번호 변경 요청 처리 결과
      */
     ApiResponseDto changePassword(User user, PasswordChangeRequestDto passwordRequestDto, HttpServletRequest httpServletRequest);
 

@@ -1,4 +1,4 @@
-package com.itsinseo.jasoseolclone.common.dto;
+package com.itsinseo.jasoseolclone.common;
 
 import lombok.Getter;
 

@@ -59,8 +59,8 @@ public class WebSecurityConfig {
                 authorizeHttpRequests
                         .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
                         .requestMatchers(HttpMethod.POST, "/jss/users/**").permitAll()
-                        .requestMatchers("/swg").permitAll()
-                        .requestMatchers("/swagger-ui/**", "/api-docs/**").permitAll() // swagger
+                        .requestMatchers(HttpMethod.GET, "/jss/board/**").permitAll()
+                        .requestMatchers("/swg", "/swagger-ui/**", "/api-docs/**").permitAll() // swagger
                         .anyRequest().authenticated()
         );
 

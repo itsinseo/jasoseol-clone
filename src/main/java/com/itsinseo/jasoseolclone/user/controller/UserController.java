@@ -1,6 +1,6 @@
 package com.itsinseo.jasoseolclone.user.controller;
 
-import com.itsinseo.jasoseolclone.common.dto.ApiResponseDto;
+import com.itsinseo.jasoseolclone.common.ApiResponseDto;
 import com.itsinseo.jasoseolclone.security.UserDetailsImpl;
 import com.itsinseo.jasoseolclone.user.dto.NormalUserSignupRequestDto;
 import com.itsinseo.jasoseolclone.user.dto.PasswordChangeRequestDto;

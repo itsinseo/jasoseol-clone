@@ -1,6 +1,6 @@
 package com.itsinseo.jasoseolclone.comment.entity;
 
-import com.itsinseo.jasoseolclone.board.entity.Board;
+import com.itsinseo.jasoseolclone.board.entity.FreePost;
 import jakarta.persistence.*;
 import lombok.Getter;
 
@@ -16,6 +16,6 @@ public class Comment {
     private String content;
 
     @ManyToOne
-    @JoinColumn(name = "board_id")
-    private Board board;
+    @JoinColumn(name = "free_post_id")
+    private FreePost freePost;
 }
